@@ -33,5 +33,18 @@ RSpec.describe Municipe, type: :model do
         it { expect(municipe_invalid).to_not be_valid }
       end
     end  
+
+    context 'cpf' do
+      let(:municipe) { build :municipe, cpf: '02762206928' }
+      let(:municipe_invalid) { build :municipe, cpf: '012345678' }
+    
+      context "valid past date" do
+        it { expect(municipe).to be_valid }
+      end
+
+      context "invalid future date" do
+        it { expect(municipe_invalid).to_not be_valid }
+      end
+    end      
   end 
 end  
