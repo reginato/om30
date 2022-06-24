@@ -16,7 +16,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem "cpf_cnpj"
 gem "validators"
 gem 'carrierwave', '~> 2.0'
-gem 'validates-correios-cep'
+gem 'rails-controller-testing'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe Municipe, type: :model do
-  %i[name cpf cns email birth_date phone status].each do |field|
+  %i[name cpf cns email birth_date phone].each do |field|
     it { is_expected.to validate_presence_of field }
   end 
 

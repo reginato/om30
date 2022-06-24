@@ -19,30 +19,31 @@ Crie um CRUD de municípes (Exceto deletar). O munícipe tem status ativo e inat
 
 
 
-
 Ter uma entidade relacionada chamada Endereço. Essa entidade salva o endereço relacionado ao munícipe. As seguintes regras devem ser seguidas:
 - ok 2.1 Campos: CEP, Logradouro, complemento, bairro, cidade, UF e código IBGE;
 
-2.2 Todos os dados são obrigatórios, exceto complemento e código IBGE;
+- ok 2.2 Todos os dados são obrigatórios, exceto complemento e código IBGE;
 
 2.3 Em termos de MVC, existe apenas a Entidade relacional endereço. O restante é dispensável;
 Regras de negócio:
-Após criar/atualizar um munícipe, você deve mandar um Email e sms ao mesmo informando sobre o cadastro de suas informações e quando o seu status sofrer alteração;
+- ok Após criar/atualizar um munícipe, você deve mandar um Email e sms ao mesmo informando sobre o cadastro de suas informações e quando o seu status sofrer alteração;
+
 Filtrar munícipes por dados dele e/ou de endereço. É livre a escolha do que deve ser feito.
+
 Dicas:
 UI/UX:
 É possível otimizar o tempo de cadastro do endereço a partir do UX.
 Você deve minimizar o máximo possível a navegação do usuário. Como você faria isso?
 Backend:
 Pense que essas regras podem ser mudadas com uma frequência alta;
-Gostamos de otimização, setups e deploys são sempre automatizados (Docker?)
-Não preciso dizer que você precisa testar a maioria dos arquivos, não é mesmo?
-Princípios e padrões de projetos são muito bem vindos e essenciais para Seniors;
-Reduzir o número de chamadas ao banco de dados é essencial.
+- ok Gostamos de otimização, setups e deploys são sempre automatizados (Docker?)
+- ok Não preciso dizer que você precisa testar a maioria dos arquivos, não é mesmo?
+- ok Princípios e padrões de projetos são muito bem vindos e essenciais para Seniors;
+- ok Reduzir o número de chamadas ao banco de dados é essencial.
 Tools:
-Ruby, Ruby on Rails e Postgres são obrigatórios;
-Elasticsearch/Kafka (opcional, plus);
-Utilize ActionView, porém, AssetPipeline/Sprockets ou uma abordagem SPA junto ao rails;
+- ok Ruby, Ruby on Rails e Postgres são obrigatórios;
+- ok Elasticsearch/Kafka (opcional, plus);
+- ok Utilize ActionView, porém, AssetPipeline/Sprockets ou uma abordagem SPA junto ao rails;
 Critérios:
 
 TUDO, absolutamente TUDO, será olhado (sim, teremos carinho pelo seu tempo gasto e olharemos com destreza seu teste);

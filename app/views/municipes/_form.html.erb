@@ -48,16 +48,37 @@
     <%= form.text_field :phone %>
   </div>
 
-  <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status %>
-  </div>
+  <p>Endereço</p>
 
-  <%= f.fields_for :address do |address| %>
+  <%= form.fields_for :address do |address_field| %>
     <div class="field">
-      <%= form.label :cep %>
-      <%= form.text_field :cep %>
+      <%= address_field.label :cep %>
+      <%= address_field.text_field :cep %>
     </div>    
+    <div class="field">
+      <%= address_field.label :street %>
+      <%= address_field.text_field :street %>
+    </div>
+    <div class="field">
+      <%= address_field.label :complement %>
+      <%= address_field.text_field :complement %>
+    </div>
+    <div class="field">
+      <%= address_field.label :neighborhood %>
+      <%= address_field.text_field :neighborhood %>
+    </div>    
+    <div class="field">
+      <%= address_field.label :city %>
+      <%= address_field.text_field :city %>
+    </div>
+    <div class="field">
+      <%= address_field.label :uf %>
+      <%= address_field.text_field :uf %>
+    </div>    
+    <div class="field">
+      <%= address_field.label :ibge_code %>
+      <%= address_field.text_field :ibge_code %>
+    </div>        
   <% end %>
 
   <div class="actions">
