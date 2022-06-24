@@ -53,6 +53,13 @@
     <%= form.text_field :status %>
   </div>
 
+  <%= f.fields_for :address do |address| %>
+    <div class="field">
+      <%= form.label :cep %>
+      <%= form.text_field :cep %>
+    </div>    
+  <% end %>
+
   <div class="actions">
     <%= form.submit %>
   </div>

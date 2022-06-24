@@ -15,13 +15,13 @@ Crie um CRUD de municípes (Exceto deletar). O munícipe tem status ativo e inat
 
 - ok 1.4 Tenha atenção a data de nascimento. Valide os casos impossíveis/improváveis de serem válidos;
 
-1.5 Foto do munícipe deve ser tamanhos diferentes para servir vários casos.
+- ok 1.5 Foto do munícipe deve ser tamanhos diferentes para servir vários casos.
 
 
 
 
 Ter uma entidade relacionada chamada Endereço. Essa entidade salva o endereço relacionado ao munícipe. As seguintes regras devem ser seguidas:
-2.1 Campos: `CEP, Logradouro, complemento, bairro, cidade, UF e código IBGE`;
+- ok 2.1 Campos: CEP, Logradouro, complemento, bairro, cidade, UF e código IBGE;
 
 2.2 Todos os dados são obrigatórios, exceto complemento e código IBGE;
 

@@ -1,4 +1,6 @@
 class Municipe < ApplicationRecord
+  has_one :address
+
   validates :name, :cpf, :cns, :email, :birth_date, :phone, :status, presence: true
   validates_format_of :email, with: URI::MailTo::EMAIL_REGEXP
   validate :birth_dates
