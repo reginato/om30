@@ -8,15 +8,30 @@ RSpec.describe Municipe, type: :model do
   end 
 
   describe "validates" do
-    let(:municipe) { build :municipe }
-    let(:municipe_invalid) { build :municipe, name: nil }
-  
-    context "valid past date" do
-      it { expect(municipe).to be_valid }
-    end
+    context 'municipe is valid?' do
+      let(:municipe) { build :municipe }
+      let(:municipe_invalid) { build :municipe, name: nil }
+    
+      context "valid past date" do
+        it { expect(municipe).to be_valid }
+      end
 
-    context "invalid future date" do
-      it { expect(municipe_invalid).to_not be_valid }
+      context "invalid future date" do
+        it { expect(municipe_invalid).to_not be_valid }
+      end
     end
+    
+    context 'email' do
+      let(:municipe) { build :municipe }
+      let(:municipe_invalid) { build :municipe, email: 'teste.com' }
+    
+      context "valid past date" do
+        it { expect(municipe).to be_valid }
+      end
+
+      context "invalid future date" do
+        it { expect(municipe_invalid).to_not be_valid }
+      end
+    end  
   end 
 end  
