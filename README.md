@@ -6,10 +6,10 @@ Tempo é fundamental para nós, porém, vamos focar na qualidade do seu trabalho
 Desafio:
 Crie um CRUD de municípes (Exceto deletar). O munícipe tem status ativo e inativo. Idealmente, só precisa ser 2 páginas: Listagem de CRUD (com opções para navegar), e o cadastro em si. 2 páginas é apenas uma sugestão, você é livre para montar o UI/UX da forma que achar melhor.
 
-Ter uma entidade relacionada chamada Munícipe. Essa entidade cadastra cidadãos (pessoas) dentro de um município. As seguintes regras devem ser seguidas:
+- OK Ter uma entidade relacionada chamada Munícipe. Essa entidade cadastra cidadãos (pessoas) dentro de um município. As seguintes regras devem ser seguidas:
 1.1 Dados do munícipe: `Nome completo, CPF, CNS(cartão nacional de saúde), Email, Data nascimento, Telefone (código do país e ddd), Foto e status`.
 
-1.2 Todos os dados do munícipe são obrigatórios;
+- 1.2 Todos os dados do munícipe são obrigatórios;
 
 1.3 `CPF, CNS,Email` devem ser válidos;
 
