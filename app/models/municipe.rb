@@ -4,6 +4,8 @@ class Municipe < ApplicationRecord
   validate :birth_dates
   validates_cpf_format_of :cpf
 
+  mount_uploader :photo, PhotoUploader
+
   def birth_dates
     return if birth_date.blank?
 

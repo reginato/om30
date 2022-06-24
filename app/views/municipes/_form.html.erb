@@ -1,4 +1,4 @@
-<%= form_with(model: municipe) do |form| %>
+<%= form_with(model: municipe, html: { multipart: true }) do |form| %>
   <% if municipe.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(municipe.errors.count, "error") %> prohibited this municipe from being saved:</h2>
@@ -15,6 +15,13 @@
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
+
+    <p>
+    <label>Photo</label>
+    <%= image_tag(municipe.photo_url) if municipe.photo? %>
+    <%= form.file_field :photo %>
+    <%= form.hidden_field :photo_cache %>
+  </p>
 
   <div class="field">
     <%= form.label :cpf %>

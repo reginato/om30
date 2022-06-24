@@ -9,11 +9,11 @@ Crie um CRUD de municípes (Exceto deletar). O munícipe tem status ativo e inat
 - OK Ter uma entidade relacionada chamada Munícipe. Essa entidade cadastra cidadãos (pessoas) dentro de um município. As seguintes regras devem ser seguidas:
 1.1 Dados do munícipe: `Nome completo, CPF, CNS(cartão nacional de saúde), Email, Data nascimento, Telefone (código do país e ddd), Foto e status`.
 
-- 1.2 Todos os dados do munícipe são obrigatórios;
+- ok 1.2 Todos os dados do munícipe são obrigatórios;
 
-1.3 `CPF, CNS,Email` devem ser válidos;
+- ok 1.3 `CPF, CNS, Email` devem ser válidos;
 
-1.4 Tenha atenção a data de nascimento. Valide os casos impossíveis/improváveis de serem válidos;
+- ok 1.4 Tenha atenção a data de nascimento. Valide os casos impossíveis/improváveis de serem válidos;
 
 1.5 Foto do munícipe deve ser tamanhos diferentes para servir vários casos.
 
