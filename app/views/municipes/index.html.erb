@@ -2,7 +2,13 @@
 
 <h1>Municipes</h1>
 
-
+<div>
+  <%= search_form_for @search, url: municipes_path do |f| %>
+    <%= f.search_field :name_or_cpf_or_cns_or_phone_or_addresses_street_or_addresses_city_or_addresses_ibge_code_or_addresses_neighborhood_or_addresses_complement_cont %>
+    <%= submit_tag 'Buscar' %>
+  <% end %>
+</div>
+<br />
 <table>
   <thead>
     <tr>
@@ -29,7 +35,6 @@
         <td><%= municipe.status %></td>
         <td><%= link_to 'Show', municipe %></td>
         <td><%= link_to 'Edit', edit_municipe_path(municipe) %></td>
-        <td><%= link_to 'Destroy', municipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

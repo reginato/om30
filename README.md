@@ -28,7 +28,7 @@ Ter uma entidade relacionada chamada Endereço. Essa entidade salva o endereço 
 Regras de negócio:
 - ok Após criar/atualizar um munícipe, você deve mandar um Email e sms ao mesmo informando sobre o cadastro de suas informações e quando o seu status sofrer alteração;
 
-Filtrar munícipes por dados dele e/ou de endereço. É livre a escolha do que deve ser feito.
+- ok Filtrar munícipes por dados dele e/ou de endereço. É livre a escolha do que deve ser feito.
 
 Dicas:
 UI/UX:

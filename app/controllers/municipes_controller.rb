@@ -2,9 +2,8 @@ class MunicipesController < ApplicationController
   before_action :set_municipe, only: %i[ show edit update ]
 
   def index
-    # puts MunicipeSearch.new(municipe_params).search 
-    # @municipes = MunicipeSearch.new(municipe_params).search 
-    @municipes = Municipe.paginate(page: params[:page], per_page: 5)
+    @search = Municipe.ransack(params[:q])
+    @municipes = @search.result.includes(:addresses).paginate(page: params[:page], per_page: 5)
   end
 
   def show
