@@ -1,6 +1,7 @@
 class Municipe < ApplicationRecord
-  has_one :address
-
+  has_many :addresses
+  accepts_nested_attributes_for :addresses
+  
   validates :name, :cpf, :cns, :email, :birth_date, :phone, presence: true
   validates_format_of :email, with: URI::MailTo::EMAIL_REGEXP
   validate :birth_dates

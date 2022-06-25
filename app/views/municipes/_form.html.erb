@@ -1,5 +1,6 @@
-<%= form_with(model: municipe, html: { multipart: true }) do |form| %>
-  <% if municipe.errors.any? %>
+
+<%= form_with model: @municipe, html: { multipart: true } do |form| %>
+   <% if municipe.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(municipe.errors.count, "error") %> prohibited this municipe from being saved:</h2>
 
@@ -18,7 +19,7 @@
 
     <p>
     <label>Photo</label>
-    <%= image_tag(municipe.photo_url) if municipe.photo? %>
+    <%= image_tag(municipe.photo_url(:thumb)) if municipe.photo? %>
     <%= form.file_field :photo %>
     <%= form.hidden_field :photo_cache %>
   </p>
@@ -48,39 +49,17 @@
     <%= form.text_field :phone %>
   </div>
 
-  <p>Endereço</p>
-
-  <%= form.fields_for :address do |address_field| %>
-    <div class="field">
-      <%= address_field.label :cep %>
-      <%= address_field.text_field :cep %>
-    </div>    
-    <div class="field">
-      <%= address_field.label :street %>
-      <%= address_field.text_field :street %>
-    </div>
-    <div class="field">
-      <%= address_field.label :complement %>
-      <%= address_field.text_field :complement %>
-    </div>
-    <div class="field">
-      <%= address_field.label :neighborhood %>
-      <%= address_field.text_field :neighborhood %>
-    </div>    
-    <div class="field">
-      <%= address_field.label :city %>
-      <%= address_field.text_field :city %>
-    </div>
-    <div class="field">
-      <%= address_field.label :uf %>
-      <%= address_field.text_field :uf %>
-    </div>    
-    <div class="field">
-      <%= address_field.label :ibge_code %>
-      <%= address_field.text_field :ibge_code %>
-    </div>        
-  <% end %>
-
+  <% if @municipe.addresses.present? %>
+    <% @municipe.addresses.each do |address| %>
+      <%= form.fields_for :addresses do |address_form| %>
+        <%= render partial: 'address', locals: { address_form: address_form } %>
+      <% end %>
+    <% end %>
+  <% else %>  
+      <%= form.fields_for :addresses, Address.new do |address_form| %>
+        <%= render partial: 'address', locals: { address_form: address_form } %>
+      <% end %>
+  <% end %> 
   <div class="actions">
     <%= form.submit %>
   </div>

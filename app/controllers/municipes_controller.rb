@@ -2,6 +2,8 @@ class MunicipesController < ApplicationController
   before_action :set_municipe, only: %i[ show edit update ]
 
   def index
+    # puts MunicipeSearch.new(municipe_params).search 
+    # @municipes = MunicipeSearch.new(municipe_params).search 
     @municipes = Municipe.all
   end
 
@@ -16,9 +18,9 @@ class MunicipesController < ApplicationController
   end
 
   def create
+    puts municipe_params
     @municipe = Municipe.new(municipe_params)
 
-    puts @municipe.save!
     respond_to do |format|
       if @municipe.save
         MunicipeMailer.municipe_create(@municipe).deliver_now
@@ -51,6 +53,7 @@ class MunicipesController < ApplicationController
   end
 
   def municipe_params
-    params.require(:municipe).permit(:name, :cpf, :cns, :email, :birth_date, :phone, :status, :photo_cache, address: [:cep, :street, :complement, :neighborhood, :city, :uf, :ibge_code])
+    params.require(:municipe).permit(:name, :cpf, :cns, :email, :birth_date, :phone, :status, :photo, :photo_cache,
+                                     addresses_attributes: [:id, :street, :cep, :complement, :neighborhood, :city, :uf, :ibge_code])
   end
 end

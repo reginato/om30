@@ -35,5 +35,11 @@
   <%= @municipe.status %>
 </p>
 
+<p>
+  <strong>Rua:</strong>
+  <%= @municipe.addresses.first&.street %>
+</p>
+
+
 <%= link_to 'Edit', edit_municipe_path(@municipe) %> |
 <%= link_to 'Back', municipes_path %>
