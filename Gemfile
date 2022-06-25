@@ -17,6 +17,7 @@ gem "cpf_cnpj"
 gem "validators"
 gem 'carrierwave', '~> 2.0'
 gem 'rails-controller-testing'
+gem 'will_paginate', '~> 3.3'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

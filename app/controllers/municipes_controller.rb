@@ -4,7 +4,7 @@ class MunicipesController < ApplicationController
   def index
     # puts MunicipeSearch.new(municipe_params).search 
     # @municipes = MunicipeSearch.new(municipe_params).search 
-    @municipes = Municipe.all
+    @municipes = Municipe.paginate(page: params[:page], per_page: 5)
   end
 
   def show
