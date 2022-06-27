@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MunicipesController < ApplicationController
   before_action :set_municipe, only: %i[ show edit update ]
 
@@ -21,7 +23,7 @@ class MunicipesController < ApplicationController
 
     respond_to do |format|
       if @municipe.save
-        ClientsWorker.perform_async(@municipe.id)
+        MunicipeWorker.perform_async(@municipe.id)
         format.html { redirect_to municipe_url(@municipe), notice: "Municipe was successfully created." }
         format.json { render :show, status: :created, location: @municipe }
       else

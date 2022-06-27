@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Municipe < ApplicationRecord
   has_many :addresses
   accepts_nested_attributes_for :addresses
