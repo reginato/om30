@@ -17,7 +17,6 @@ class MunicipesController < ApplicationController
   end
 
   def create
-    puts municipe_params
     @municipe = Municipe.new(municipe_params)
 
     respond_to do |format|
@@ -52,7 +51,7 @@ class MunicipesController < ApplicationController
   end
 
   def municipe_params
-    params.require(:municipe).permit(:name, :cpf, :cns, :email, :birth_date, :phone, :status, :photo, :photo_cache,
+    params.require(:municipe).permit(:name, :cpf, :cns, :email, :birth_date, :phone,
                                      addresses_attributes: [:id, :street, :cep, :complement, :neighborhood, :city, :uf, :ibge_code])
   end
 end

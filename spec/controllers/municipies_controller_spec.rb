@@ -6,13 +6,22 @@ RSpec.describe MunicipesController, type: :controller do
   describe 'GET #index' do
     context 'when params is right' do
      let(:municipe) { create(:municipe) }  
+     let(:municipe_2) { create(:municipe, name: 'Rodrigo Reginato') }  
 
       it 'return all municipies'do
         get :index
 
         expect(response).to have_http_status(:ok)
         expect(response).to render_template("index")
-        expect(assigns(:municipes)).to eq([municipe])
+        expect(assigns(:municipes)).to eq([municipe, municipe_2])
+      end
+
+      it 'return one municipe with name'do
+        get :index, params: { q: { name_or_cpf_or_cns_or_phone_or_addresses_street_or_addresses_city_or_addresses_ibge_code_or_addresses_neighborhood_or_addresses_complement_cont: "Rodrigo" } }
+
+        expect(response).to have_http_status(:ok)
+        expect(response).to render_template("index")
+        expect(assigns(:municipes)).to eq([municipe_2])
       end
     end
   end 
@@ -43,11 +52,20 @@ RSpec.describe MunicipesController, type: :controller do
     let(:municipe) { create(:municipe) }
 
     context "with valid attributes" do
-      it "creates a new municipe" do
-        expect{
-          post :create, params: { name: 'Rodrigo', cpf: '02762206928', cns:'1234567', email: 'rreginatom@gmail.com', birth_date: '1979-03-27', phone: '5543991516103', address: { cep: '86073660' } }
-        }.to change(Municipe, :count).by(1)
-      end
+
+        before { post :create, params: { name: 'Rodrigo', cpf: '02762206928', cns:'1234567', email: 'rreginatom@gmail.com', birth_date: '1979-03-27', phone: '5543991516103', 
+                                         addresses_attributes: { id: '1', cep: '86073660', street: 'rua star wars', neighborhood: 'obi wan', complement: 'home', city: 'Londrina', uf: 'PR', ibge_code: '1234' } } }
+  
+        it { expect(assigns(:municipe)).to be_persisted }
+        it { expect(response).to redirect_to municipes_path }
+        it { expect(assigns(:municipe)).to eq municipe }
+  
+      # it "creates a new municipe" do
+      #   expect{
+      #     post :create, params: { name: 'Rodrigo', cpf: '02762206928', cns:'1234567', email: 'rreginatom@gmail.com', birth_date: '1979-03-27', phone: '5543991516103', 
+      #                             addresses_attributes: { id: '1', cep: '86073660', street: 'rua star wars', neighborhood: 'obi wan', complement: 'home', city: 'Londrina', uf: 'PR', ibge_code: '1234' } }
+      #   }.to change(Municipe, :count).by(1)
+      # end
 
       # it "don't create a new municipe because out of work hour" do
       #   expect{
@@ -62,7 +80,7 @@ RSpec.describe MunicipesController, type: :controller do
      
     context 'with a valid attributes' do
       it 'update a municipe' do
-        put :update, params: { name: 'Theo', cpf: '02762206928', cns:'1234567', email: 'rreginatom@gmail.com', birth_date: '1979-03-27', phone: '5543991516103', address: { cep: '86073660' } }
+        put :update, params: { name: 'Theo', cpf: '02762206928', cns:'1234567', email: 'rreginatom@gmail.com', birth_date: '1979-03-27', phone: '5543991516103', addresses_attributes: { cep: '86073660' } }
 
         expect(municipe.reload.name).to eq("Theo")
       end  
