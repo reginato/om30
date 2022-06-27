@@ -21,8 +21,7 @@ class MunicipesController < ApplicationController
 
     respond_to do |format|
       if @municipe.save
-        SendSMS.new('Criado com sucesso', @municipe.phone_number).call
-        MunicipeMailer.municipe_create(@municipe).deliver_now
+        ClientsWorker.perform_async(@municipe.id)
         format.html { redirect_to municipe_url(@municipe), notice: "Municipe was successfully created." }
         format.json { render :show, status: :created, location: @municipe }
       else
