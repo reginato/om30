@@ -19,6 +19,8 @@ gem 'carrierwave', '~> 2.0'
 gem 'rails-controller-testing'
 gem 'will_paginate', '~> 3.3'
 gem 'ransack', '3.0.1'
+gem 'popper_js', '~> 2.9.3'
+gem 'twilio-ruby', '~> 5.67.3'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
