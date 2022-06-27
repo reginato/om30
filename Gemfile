@@ -21,6 +21,9 @@ gem 'will_paginate', '~> 3.3'
 gem 'ransack', '3.0.1'
 gem 'popper_js', '~> 2.9.3'
 gem 'twilio-ruby', '~> 5.67.3'
+gem 'sidekiq', '6.2.1'
+gem 'redis', '~> 4.0'
+gem 'redis-namespace', '~> 1.8.1'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

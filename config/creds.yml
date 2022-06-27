@@ -1,3 +1,4 @@
 twillio:
   twilio_account_sid: <%= ENV.fetch("TWILIO_ACCOUNT_SID") %>
   auth_token: <%= ENV.fetch("AUTH_TOKEN") %> 
+  phone_number: <%= ENV.fetch("PHONE_NUMBER") %>  
